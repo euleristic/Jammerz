@@ -5,7 +5,9 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     private static float _relativeTime;
-    private static float _timeFactor;
+    private static float _timeFactor = 1;
+
+    public static bool Debugging = false;
     
     private void Awake()
     {
@@ -34,13 +36,16 @@ public class TimeManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Numlock)) Debugging = !Debugging;
+
+        if (!Debugging) return;
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             _timeFactor = -1f;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            _timeFactor = -.5f;
+            _timeFactor = -.2f;
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -48,7 +53,7 @@ public class TimeManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            _timeFactor = .5f;
+            _timeFactor = .2f;
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
