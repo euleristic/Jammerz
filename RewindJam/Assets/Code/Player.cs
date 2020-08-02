@@ -19,9 +19,9 @@ public class Player : MonoBehaviour
 
     private void Movement()
     {
-        var moveX = Input.GetAxis("Horizontal") * Time.deltaTime;
+        var moveX = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         var posX = transform.position.x + moveX;
-        var moveY = Input.GetAxis("Vertical") * Time.deltaTime;
+        var moveY = Input.GetAxis("Vertical") * Time.deltaTime * speed;
         var posY = transform.position.y + moveY;
         transform.position = new Vector2(posX, posY); 
     }
