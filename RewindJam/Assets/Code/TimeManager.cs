@@ -5,7 +5,7 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     private static float _relativeTime;
-    private static float _timeFactor = 1;
+    private static float _timeFactor = 1f;
 
     public static bool Debugging = false;
     
@@ -31,11 +31,11 @@ public class TimeManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _relativeTime += Time.deltaTime * _timeFactor;        
+        _relativeTime += Time.deltaTime * _timeFactor;
     }
 
     private void Update()
-    {
+    { 
         if (Input.GetKeyDown(KeyCode.Numlock)) Debugging = !Debugging;
 
         if (!Debugging) return;

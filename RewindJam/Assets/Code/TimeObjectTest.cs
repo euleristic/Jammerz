@@ -10,15 +10,15 @@ public class TimeObjectTest : MonoBehaviour
 
     private void Start()
     {
-        _spawnTime = Time.time;
+        _spawnTime = TimeManager.GetRelativeTime();
         startPos = transform.position;
     }
     private void Update()
     {
-        transform.position = transform.position.With(x: startPos.x + Mathf.Sin(TimeManager.GetRelativeTime() * speed), y:startPos.y - TimeManager.GetRelativeTime() * speed);
+        transform.position = transform.position.With(x: startPos.x + Mathf.Sin((TimeManager.GetRelativeTime() - _spawnTime) * speed), y:startPos.y + (TimeManager.GetRelativeTime() - _spawnTime) * speed);
 
-        //transform.rotation = transform.rotation.Set2DRotation(Mathf.Cos(TimeManager.GetRelativeTime() * speed) * 15f);
-        transform.rotation = transform.rotation.AddRotation(TimeManager.GetTimeFactor() * Time.deltaTime * 100f);
+        transform.rotation = transform.rotation.Set2DRotation(Mathf.Cos(TimeManager.GetRelativeTime() * speed) * 15f);
+        //transform.rotation = transform.rotation.AddRotation(TimeManager.GetTimeFactor() * Time.deltaTime * 100f);
         if (TimeManager.GetRelativeTime() < _spawnTime) Destroy(gameObject);
     }
 }

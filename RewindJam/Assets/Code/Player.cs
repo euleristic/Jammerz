@@ -1,28 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IShip
 {
     [SerializeField] float speed = 20f;
-    // Start is called before the first frame update
-    void Start()
+
+    private IPlayerInput _input;
+    private IMovementType _movement;
+
+    public Action<bool> ShootEvent { get; set; }
+
+    private void Start()
     {
-        
+        _input    = GetComponent<IPlayerInput>();
+        _movement = GetComponent<IMovementType>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Movement();
+
+        if (_input.Shooting()) ShootEvent.Invoke(false);
     }
 
     private void Movement()
     {
-        var moveX = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        var posX = transform.position.x + moveX;
-        var moveY = Input.GetAxis("Vertical") * Time.deltaTime * speed;
-        var posY = transform.position.y + moveY;
-        transform.position = new Vector2(posX, posY); 
+        _movement.Move(_input.MovementVector());
+    }
+
+    public void Shoot()
+    {
+        throw new NotImplementedException();
     }
 }
