@@ -14,4 +14,12 @@ public static class ExtentionMethods
         return new Vector3(x ?? vector.x, y ?? vector.y, z ?? vector.z);
     }
 
+    public static Quaternion Set2DRotation(this Quaternion q, float z)
+    {
+        return Quaternion.Euler(0f, 0f, z);
+    }
+    public static Quaternion AddRotation(this Quaternion q, float dz)
+    {
+        return Quaternion.Euler(0f, 0f, q.eulerAngles.z + dz);
+    }
 }
