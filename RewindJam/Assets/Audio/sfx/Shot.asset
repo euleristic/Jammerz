@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Shot
+  m_EditorClassIdentifier: Assembly-CSharp::SoundEffect
+  Clip: {fileID: 8300000, guid: f8c33f04c09d34b4b954e173f24d1e67, type: 3}
+  BaseVolume: 1
+  VolumeVariation: 0.05
+  BasePitch: 1
+  PitchVariation: 0.3

@@ -15,10 +15,15 @@ public class TimeObjectTest : MonoBehaviour
     }
     private void Update()
     {
-        transform.position = transform.position.With(x: startPos.x + Mathf.Sin((TimeManager.GetRelativeTime() - _spawnTime) * speed), y:startPos.y + (TimeManager.GetRelativeTime() - _spawnTime) * speed);
-
-        transform.rotation = transform.rotation.Set2DRotation(Mathf.Cos(TimeManager.GetRelativeTime() * speed) * 15f);
+        //transform.position = transform.position.With(x: startPos.x + Mathf.Sin((TimeManager.GetRelativeTime() - _spawnTime) * speed), y:startPos.y + (TimeManager.GetRelativeTime() - _spawnTime) * speed);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(TimeManager.GetRelativeTime() * speed), 1f) * TimeManager.GetTimeFactor() * -speed;
+        //transform.rotation = transform.rotation.Set2DRotation(Mathf.Cos(TimeManager.GetRelativeTime() * speed) * 15f);
         //transform.rotation = transform.rotation.AddRotation(TimeManager.GetTimeFactor() * Time.deltaTime * 100f);
         if (TimeManager.GetRelativeTime() < _spawnTime) Destroy(gameObject);
+
+        if(Input.GetButtonDown("Jump"))
+        {
+            DeletedObjectHandler.DestroyObject(gameObject);
+        }
     }
 }
