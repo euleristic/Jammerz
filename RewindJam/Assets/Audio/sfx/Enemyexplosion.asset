@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Enemyexplosion
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffect
-  Clip: {fileID: 0}
+  Clip: {fileID: 8300000, guid: d971d830d362cd3478df56546d2fe846, type: 3}
   BaseVolume: 0.95
   VolumeVariation: 0.05
   BasePitch: 1
