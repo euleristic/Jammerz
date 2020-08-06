@@ -12,6 +12,7 @@ public class AutoUnmake : MonoBehaviour
         if(TimeManager.GetRelativeTime() < _startTime)
         {
             Destroy(gameObject);
+            Explosions.SpawnExplosion(transform.position);
         }
     }
 }

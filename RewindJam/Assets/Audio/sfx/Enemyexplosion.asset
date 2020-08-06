@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: Enemyexplosion
+  m_Name: EnemyExplosion
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffect
-  Clip: {fileID: 8300000, guid: d971d830d362cd3478df56546d2fe846, type: 3}
+  Clip: {fileID: 0}
   BaseVolume: 0.95
   VolumeVariation: 0.05
   BasePitch: 1

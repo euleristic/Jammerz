@@ -21,6 +21,7 @@ public class DeletedObjectHandler : MonoBehaviour
                 if (TimeManager.GetRelativeTime() < _destroyedObjects[i].destroyedTime)
                 {
                     _destroyedObjects[i].gO.SetActive(true);
+                    Explosions.SpawnExplosion(_destroyedObjects[i].gO.transform.position);
                     _destroyedObjects.RemoveAt(i);
                 }
             }

@@ -2,15 +2,19 @@
 using UnityEngine;
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class TestEnemy : MonoBehaviour, IShip
+public class EnemyBase : MonoBehaviour, IShip
 {
+    private float _startTime;
     public Action<bool> ShootEvent { get; set; }
     private Health _health;
     protected IMovementType _movement;
     protected Weapon _weapon;
     [SerializeField] private SoundEffect _deathSound;
+    private SpriteRenderer _sr;
     protected void Start()
     {
+        _sr = GetComponent<SpriteRenderer>();
+        _startTime = TimeManager.GetRelativeTime();
         _movement = GetComponent<IMovementType>();
         _health = GetComponent<Health>();
     }
@@ -21,6 +25,8 @@ public class TestEnemy : MonoBehaviour, IShip
         {
             Die();
         }
+        _sr.color = Color.red;
+        LeanTween.color(gameObject, Color.white, 0.25f);
     }
     public void Shoot()
     {

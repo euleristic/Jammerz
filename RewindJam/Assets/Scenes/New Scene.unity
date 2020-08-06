@@ -875,8 +875,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e56d247f0b9a447bd7ffdb8aa6f6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _swayAngle: 5
+  _swayAngle: -5
   _swaySpeed: 3
+  _horizontal: 0
 --- !u!114 &906272407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2181,10 +2182,10 @@ GameObject:
   - component: {fileID: 1932067453}
   - component: {fileID: 1932067452}
   - component: {fileID: 1932067451}
-  - component: {fileID: 1932067450}
   - component: {fileID: 1932067449}
   - component: {fileID: 1932067448}
   - component: {fileID: 1932067455}
+  - component: {fileID: 1932067450}
   m_Layer: 0
   m_Name: Enemy (7)
   m_TagString: Untagged
@@ -2232,10 +2233,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1932067447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a027b970bcf0b074daedeedfab03a5ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d5370a5b978cd94c8fa48e69be150bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathSound: {fileID: 11400000, guid: 27cd0b18169353940a0d144a4294baba, type: 2}
+  _deathSound: {fileID: 0}
 --- !u!50 &1932067451
 Rigidbody2D:
   serializedVersion: 4
@@ -2328,13 +2329,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932067447}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 5.48, y: 1.82, z: -0.99166495}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 12.23, y: 0.2, z: -0.99166495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &1932067455
 BoxCollider2D:
   m_ObjectHideFlags: 0

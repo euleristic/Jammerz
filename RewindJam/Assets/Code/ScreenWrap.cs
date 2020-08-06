@@ -97,7 +97,7 @@ public class ScreenWrap : MonoBehaviour
                         DeletedObjectHandler.DestroyObject(gameObject);
                         break;
                     case Mode.Constrain:
-                        transform.position = transform.position.With(y: _cam.ScreenToWorldPoint(new Vector3(Screen.height, 0f, 0f)).y - ((_sr.size * offsetmultiplier) / 2).y);
+                        transform.position = transform.position.With(y: _cam.ScreenToWorldPoint(new Vector3(0f, 0f, 0f)).y - ((_sr.size * offsetmultiplier) / 2).y);
                         break;
                 }
 

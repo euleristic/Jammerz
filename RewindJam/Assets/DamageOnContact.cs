@@ -18,7 +18,7 @@ public class DamageOnContact : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IShip hit = collision.transform.GetComponent<IShip>();
-        if(!_enemy && hit is TestEnemy && TimeManager.GetTimeFactor() > 0 || _enemy && hit is Player)
+        if(!_enemy && hit is EnemyBase && TimeManager.GetTimeFactor() > 0 || _enemy && hit is Player)
         {
             hit.Damage(_damage);
             if (_onHitSoundEffect != null) SoundEffects.PlaySoundEffect(_onHitSoundEffect);
