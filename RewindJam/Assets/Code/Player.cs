@@ -2,8 +2,8 @@
 using UnityEngine;
 public class Player : MonoBehaviour, IShip
 {
-    [SerializeField] float speed = 20f;
-
+    [SerializeField] private int _maxHealth = 3;
+    private Health _health;
     private IPlayerInput _input;
     private IMovementType _movement;
 
@@ -11,6 +11,7 @@ public class Player : MonoBehaviour, IShip
 
     private void Start()
     {
+        _health = GetComponent<Health>();
         _input    = GetComponent<IPlayerInput>();
         _movement = GetComponent<IMovementType>();
     }
@@ -19,7 +20,7 @@ public class Player : MonoBehaviour, IShip
     {
         Movement();
 
-        if (_input.Shooting()) ShootEvent.Invoke(false);
+        if (_input.Shooting()) Shoot();
     }
 
     private void Movement()
@@ -29,6 +30,11 @@ public class Player : MonoBehaviour, IShip
 
     public void Shoot()
     {
-        throw new NotImplementedException();
+        ShootEvent.Invoke(false);
+    }
+
+    public void Damage(int incomingDamage)
+    {
+        _health.Damage(incomingDamage);
     }
 }
