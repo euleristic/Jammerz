@@ -20,6 +20,9 @@ public class DamageOnContact : MonoBehaviour
         IShip hit = collision.transform.GetComponent<IShip>();
         if(!_enemy && hit is EnemyBase && TimeManager.GetTimeFactor() > 0 || _enemy && hit is Player)
         {
+
+            
+
             hit.Damage(_damage);
             if (_onHitSoundEffect != null) SoundEffects.PlaySoundEffect(_onHitSoundEffect);
             Explosions.SpawnExplosion(transform.position);

@@ -34,6 +34,15 @@ public class TimeManager : MonoBehaviour
         _relativeTime += Time.deltaTime * _timeFactor;
     }
 
+    public static void SetTimeFactor(float factor)
+    {
+        LeanTween.value(_timeFactor, factor, 0.5f).setOnUpdate(SetTimeThing);
+    }
+    public static void SetTimeThing(float t)
+    {
+        _timeFactor = t;
+    }
+
     private void Update()
     { 
         if (Input.GetKeyDown(KeyCode.Numlock)) Debugging = !Debugging;
@@ -41,7 +50,7 @@ public class TimeManager : MonoBehaviour
         if (!Debugging) return;
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            _timeFactor = -1f;
+            SetTimeFactor(-1f);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {

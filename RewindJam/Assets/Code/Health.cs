@@ -30,22 +30,12 @@ public class Health : MonoBehaviour
     }
     private void Update()
     {
-
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            Damage(3);
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Heal(2);
-        }
-
         if(TimeManager.GetTimeFactor() < 0f)
         {
             for (int i = 0; i < _healthChangeInstances.Count; i++)
             {
                 int index = _healthChangeInstances.Count - i - 1;
-                if (TimeManager.GetRelativeTime() < _healthChangeInstances[i].relativeTime)
+                if (TimeManager.GetRelativeTime() <= _healthChangeInstances[i].relativeTime)
                 {
                     _health -= _healthChangeInstances[i].delta;
                     _healthChangeInstances.RemoveAt(i);
@@ -53,6 +43,15 @@ public class Health : MonoBehaviour
                 else break;
             }
         }
+    }
+
+    public int GetCurrentHealth()
+    {
+        return _health;
+    }
+    public int GetMaxHealth()
+    {
+        return _maxHealth;
     }
 }
 

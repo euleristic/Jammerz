@@ -9,7 +9,7 @@ public class SoundEffects : MonoBehaviour
     {
         if (clip == null) 
         {
-            Debug.Log("There's no fockin' sound effect you muppet");
+            Debug.LogWarning("There's no fockin' sound effect you muppet");
             return; 
         }
         

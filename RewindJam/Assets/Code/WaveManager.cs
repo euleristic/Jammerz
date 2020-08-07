@@ -20,7 +20,7 @@ public class WaveManager : MonoBehaviour
         for (int i = 0; i < numOfEnemies; i++)
             GameObject.Instantiate(enemyTypes[enemyType],
                 new Vector3(Camera.main.transform.position.x + screenSize.x / 2 + 1 + i, 
-                Camera.main.transform.position.y + Random.Range(-screenSize.y / 2, screenSize.y / 2)), Quaternion.identity);
+                Camera.main.transform.position.y + Random.Range(-screenSize.y / 2, screenSize.y / 2)), enemyTypes[i].transform.rotation);
     }
 
     private void Update()

@@ -21,7 +21,7 @@ public class Sway : MonoBehaviour
         float testNumber = _horizontal ? _rb.velocity.x : _rb.velocity.y;
         if(Mathf.Abs(testNumber * TimeManager.GetTimeFactor()) > 0f)
         {
-            _angle -= testNumber * _swaySpeed *  TimeManager.GetTimeFactor();
+            _angle += testNumber * _swaySpeed *  TimeManager.GetTimeFactor();
             _angle = Mathf.Clamp(_angle, -_swayAngle, _swayAngle);
         }
         else

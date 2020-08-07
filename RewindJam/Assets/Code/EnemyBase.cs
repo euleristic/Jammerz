@@ -32,12 +32,13 @@ public class EnemyBase : MonoBehaviour, IShip
     {
         if(ShootEvent != null)
         {
-            ShootEvent.Invoke(false);
+            ShootEvent.Invoke(true);
         }
     }
     private void Die()
     {
         if (_deathSound != null) SoundEffects.PlaySoundEffect(_deathSound);
+        Explosions.SpawnExplosions(transform.position, _sr, 5);
         DeletedObjectHandler.DestroyObject(gameObject);        
     }
 

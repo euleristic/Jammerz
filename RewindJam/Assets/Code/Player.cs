@@ -6,11 +6,13 @@ public class Player : MonoBehaviour, IShip
     private Health _health;
     private IPlayerInput _input;
     private IMovementType _movement;
+    private TimeTraveller _timeTraveller;
 
     public Action<bool> ShootEvent { get; set; }
 
     private void Start()
     {
+        _timeTraveller = GetComponent<TimeTraveller>();
         _health = GetComponent<Health>();
         _input    = GetComponent<IPlayerInput>();
         _movement = GetComponent<IMovementType>();
@@ -21,6 +23,14 @@ public class Player : MonoBehaviour, IShip
         Movement();
 
         if (_input.Shooting()) Shoot();
+        if(_input.Reversing() && _timeTraveller.CanReverseTime())
+        {
+            _timeTraveller.ReverseTime();
+        }
+        else
+        {
+            _timeTraveller.ResumeTime();
+        }
     }
 
     private void Movement()
@@ -31,6 +41,7 @@ public class Player : MonoBehaviour, IShip
     public void Shoot()
     {
         ShootEvent.Invoke(false);
+        _timeTraveller.ResetChargeTime();
     }
 
     public void Damage(int incomingDamage)

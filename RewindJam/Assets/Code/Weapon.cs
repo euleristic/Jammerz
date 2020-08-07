@@ -28,13 +28,12 @@ public class Weapon : MonoBehaviour
 
         /*Delete pls*/
         p.transform.rotation = p.transform.rotation.AddRotation(Random.Range(-_spread, _spread));
-        if(TimeManager.Debugging) p.GetComponent<SpriteRenderer>().color = enemy ? Color.red : Color.green;
+        Explosions.SpawnExplosion(transform.position);
         _lastShot = TimeManager.GetRelativeTime();
     }
 
     public bool CanShoot()
     {
-        //print (TimeManager.GetRelativeTime() > _lastShot + _shootSpeed || TimeManager.GetRelativeTime() < _lastShot);
         return TimeManager.GetRelativeTime() > _lastShot + _shootSpeed || TimeManager.GetRelativeTime() < _lastShot;
     }
 
